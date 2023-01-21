@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -155,6 +156,32 @@ class ApplicationTest {
     
     Map<String, List<String>> groupsToTest = app.getGroupOut();
     
-    assertEquals(groups, groupsToTest);
+    assertEquals(groups.size(), groupsToTest.size());
+    assertEquals(groups.get("Operador"), groupsToTest.get("Operador"));
+    assertEquals(groups.get("Coodenador"), groupsToTest.get("Coodenador"));
+    assertEquals(groups.get("Diretor"), groupsToTest.get("Diretor"));
+    assertEquals(groups.get("Recepcionista"), groupsToTest.get("Recepcionista"));
+    assertEquals(groups.get("Contador"), groupsToTest.get("Contador"));
+    assertEquals(groups.get("Gerente"), groupsToTest.get("Gerente"));
+    assertEquals(groups.get("Eletricista"), groupsToTest.get("Eletricista"));
+  }
+  
+  @Test
+  @DisplayName("Teste de pegar pessoas do mês")
+  void month() {
+    Application app = new Application();
+    
+    app.personBornMonth(10);
+    Map<String, List<String>> expcet = new HashMap<>();
+    List<String> persons = new ArrayList<>();
+    persons.add("Maria");
+    persons.add("Miguel");
+    
+    expcet.put("outubro", persons);
+    
+    Map<String, List<String>> test = app.month;
+    
+    assertEquals(1, test.size());
+    assertEquals(expcet.get("outubro"), test.get("outubro"));
   }
 }

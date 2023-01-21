@@ -54,6 +54,8 @@ Há um get para emp, getEmp(público).
 Acha um funcionário pelo nome e então deleta, deteleFirstByName(público).
 
 Mudança percentual no salário, inc(público), recebe um int, esse pode aumentar ou diminuir o salário.
+
+Há uma propriedade groupOut(privada) com um getter, ela é um map com chave string e valor list de strings. Há também um método para printar o grupo, printAllGroup(final) há também um método group (público) que pega a List emp e coloca chaves com o nome da função no groupOut e vai colocando o nome do funcionário na list de valor para cada chave.
 </details>
 
 <details><strong><summary> Class Application</strong></summary> <br/>
@@ -64,3 +66,5 @@ Para o segundo teste usou o mesmo procefimento para testar a classe Employeers c
 
 Testou-se para o funcionário 1, Maria e o funcionário 5, Alice. Aumento o salário de todos em 10% testou se o salário inicial das duas não é igual ao atual, então incrementou com a o método setRemunarationStringWithPercentual da class Employeer e comparou se é igual.
 
+Testou se o tamanho do map de groupOut possui 7 e testou cada chave para saber se a List é a esperada.
+</details>

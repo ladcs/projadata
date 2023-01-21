@@ -3,10 +3,12 @@ package com.projadata.employeers;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /** main class. */
@@ -19,11 +21,15 @@ public class Application {
     app.inc(10);
     app.group();
     app.printAllGroup();
+    app.personBornMonth(10);
+    app.personBornMonth(12);
+    app.printAllInMonth();
   }
   
   private Employeers emp = new Employeers();
   private Map<String, List<String>> groupOut = new LinkedHashMap<String,
       List<String>>();  
+  public Map<String, List<String>> month = new HashMap<>();
   
   public Application() {
     this.insertAll(this.emp);
@@ -31,6 +37,35 @@ public class Application {
   
   public Employeers getEmp() {
     return this.emp;
+  }
+  
+  /** Pega as pessoas que nasceram no mês dado e coloca no Map month. */
+  public void personBornMonth(int i) {
+    String[] nameMonth = {
+      "janeiro",
+      "fevereiro",
+      "março",
+      "abril",
+      "maio",
+      "junho",
+      "julho",
+      "agosto",
+      "setembro",
+      "outubro",
+      "novembro",
+      "dezembro"  
+    };
+    List<String> employeer = this.emp.employeers.stream()
+          .filter(e -> i == e.birthdate.getMonthValue())
+          .map(e -> e.name)
+          .collect(Collectors.toList());
+    this.month.put(nameMonth[i - 1], employeer);
+  }
+  
+  /**Imprimir os nomes das pessoas do mes. */
+  final void printAllInMonth() {
+    System.out.println("\n\n");
+    System.out.println(this.month);
   }
 
   /** Imprimir os grupos e o nome dos funcionários, acredito que era isso. */
