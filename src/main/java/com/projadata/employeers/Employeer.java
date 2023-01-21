@@ -19,6 +19,11 @@ public class Employeer extends Person {
     this.remunerationToString();
   }
   
+  public int numberOfRemuneration(double min) {
+    BigDecimal multiply = new BigDecimal(1 / min);
+    return this.remuneration.multiply(multiply).intValue();
+  }
+  
   private void remunerationToString() {
     DecimalFormat df = new DecimalFormat("#,###.00");
     this.remunerationString = df.format(this.remuneration);
@@ -28,9 +33,10 @@ public class Employeer extends Person {
     return this.remunerationString;
   }
   
+  /** set remunerationString. */
   public void setRemunarationStringWithPercentual(int porcent) {
-    BigDecimal pToBigDecimal = new BigDecimal(1 + porcent * 0.01);
-    BigDecimal newRemuneration = this.remuneration.multiply(pToBigDecimal);
+    BigDecimal porcentToBigDecimal = new BigDecimal(1 + porcent * 0.01);
+    BigDecimal newRemuneration = this.remuneration.multiply(porcentToBigDecimal);
     this.remuneration = newRemuneration;
     this.remunerationToString();
   }

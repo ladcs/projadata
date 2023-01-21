@@ -2,17 +2,41 @@ package com.projadata.employeers;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Objects;
+import java.util.stream.IntStream;
 
 /** main class. */
 public class Application {
+  
+  private Employeers emp = new Employeers();
+  
+  public Application() {
+    this.insertAll(this.emp);
+  }
+  
+  public Employeers getEmp() {
+    return this.emp;
+  }
 
   /** method main. */
   public static void main() {
     Application app = new Application();
-    app.insertAll();
+    app.deleteFirstByName("João");
+   
   }
   
-  private void insertAll() {
+  /** delete one employeer by name. */
+  public void deleteFirstByName(String name) {
+    int findIndex = IntStream.range(0, this.emp.employeers.size())
+        .filter(emp -> Objects.equals(this.emp.employeers.get(emp).name, name))
+        .findFirst()
+        .orElse(-1);
+    if (findIndex > 0) {
+      this.emp.deleteEmployeer(findIndex);
+    }
+  }
+  
+  private void insertAll(Employeers e) {
     LocalDate mariaDate = LocalDate.of(2000, 10, 18);
     BigDecimal mariaSalario = new BigDecimal("2009.44");
     String mariaFunc = "Operador";
@@ -44,15 +68,15 @@ public class Application {
     BigDecimal helenaSalario = new BigDecimal("2799.93");
     String helenaFunc = "Gerente";
 
-    Employeer maria = new Employeer("Maria", mariaDate, mariaSalario, mariaFunc);
-    Employeer joao = new Employeer("João", joaoDate, joaoSalario, joaoFunc);
-    Employeer caio = new Employeer("Caio", caioDate, caioSalario, caioFunc);
-    Employeer miguel = new Employeer("Miguel", miguelDate, miguelSalario, miguelFunc);
-    Employeer alice = new Employeer("Alice", aliceDate, aliceSalario, aliceFunc);
-    Employeer heitor = new Employeer("Heitor", heitorDate, heitorSalario, heitorFunc);
-    Employeer arthur = new Employeer("Arthur", arthurDate, arthurSalario, arthurFunc);
-    Employeer laura = new Employeer("Laura", lauraDate, lauraSalario, lauraFunc);
-    Employeer heloisa = new Employeer("Heloisa", heloisaDate, heloisaSalario, heloisaFunc);
-    Employeer helena = new Employeer("Helena", helenaDate, helenaSalario, helenaFunc);
+    e.includeEmployeer(new Employeer("Maria", mariaDate, mariaSalario, mariaFunc));
+    e.includeEmployeer(new Employeer("João", joaoDate, joaoSalario, joaoFunc));
+    e.includeEmployeer(new Employeer("Caio", caioDate, caioSalario, caioFunc));
+    e.includeEmployeer(new Employeer("Miguel", miguelDate, miguelSalario, miguelFunc));
+    e.includeEmployeer(new Employeer("Alice", aliceDate, aliceSalario, aliceFunc));
+    e.includeEmployeer(new Employeer("Heitor", heitorDate, heitorSalario, heitorFunc));
+    e.includeEmployeer(new Employeer("Arthur", arthurDate, arthurSalario, arthurFunc));
+    e.includeEmployeer(new Employeer("Laura", lauraDate, lauraSalario, lauraFunc));
+    e.includeEmployeer(new Employeer("Heloisa", heloisaDate, heloisaSalario, heloisaFunc));
+    e.includeEmployeer(new Employeer("Helena", helenaDate, helenaSalario, helenaFunc));
   }
 }

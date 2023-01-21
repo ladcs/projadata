@@ -8,16 +8,17 @@ public class Person {
 
   public String name = null;
   public LocalDate birthdate = null;
-  public String birthdateDayMonthYear = null;
+  private String birthdateDayMonthYear = null;
   
+  /** Contructor method. */
   public Person(String name, LocalDate birthdate) {
     this.name = name;
     this.birthdate = birthdate;
-    this.birthdateToDayMonthYear();
+    this.setBirthdateDayMonthYear();
   }
   
   /** method convert date yyyy-mm-dd to dd/mm/yy. */
-  private void birthdateToDayMonthYear() {
+  private void setBirthdateDayMonthYear() {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     this.birthdateDayMonthYear = this.birthdate.format(formatter);
   }

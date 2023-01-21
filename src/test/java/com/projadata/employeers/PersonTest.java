@@ -3,11 +3,13 @@ package com.projadata.employeers;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class TestClassPessoa {
+class PersonTest {
 
   @Test
+  @DisplayName("testa se cria corretamenta uma pessoa.")
   void test() {
     String person1 = "Luciano";
     LocalDate birthdate1 = LocalDate.of(1992, 2, 19);
