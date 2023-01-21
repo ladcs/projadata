@@ -19,10 +19,10 @@ public class Application {
   }
 
   /** method main. */
-  public static void main() {
+  public static void main(String[] args) {
     Application app = new Application();
     app.deleteFirstByName("João");
-   
+    app.printAllEmployeers();
   }
   
   /** delete one employeer by name. */
@@ -34,6 +34,13 @@ public class Application {
     if (findIndex > 0) {
       this.emp.deleteEmployeer(findIndex);
     }
+  }
+  
+  /** Infelizmente não sei testar a parte de print e não sei fazer uma tabela certinha. */
+  private void printAllEmployeers() {
+    System.out.println("Nome | Data Nascimento | Salário | Função");
+    this.emp.employeers.stream().forEach(e -> System.out.println(e.name + " | "
+        + e.getBirthdateDayMonthYear() + " | " + e.getRemunerationString() + " | " + e.function));
   }
   
   private void insertAll(Employeers e) {
