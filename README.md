@@ -32,8 +32,35 @@ Criando um employeer2 com o salário de 3000.92, testa se retorna em employeer2.
 Para o método numberOfRemuneration testos recebendo o valor de 1212 para um employeer3, com o salário de 1.212,00 no primeiro momento testo se retorn 1, aumento o salário em 100% testou se retorna 2, dobrou o salário e testou se retorna 4 e por fim teve um aumento de 24% e testou se ainda retorna 4.
 </details>
 
-<details><strong><summary> Class Application</strong></summary> <br/>
-Cria-se 10 funcionários.
+<details><summary><strong> Classe Employeers </summary></strong> <br />
+Há uma propriedade pública que é um list da classe Employeer.
 
+Há dois método público: includeEmployeer, para adicionar funcionário e deleteEmployeer para deletar funcionário.
 </details>
+<details><summary><strong> Teste Classe employeers</strong> </summary> <br/>
+Criou-se 10 funcionários, com nomes, salários, dia de nascimento e funções diferentes. Colocou na propriedade da classe Employeers, employeers, testou se há 10 empregados na propriedade, se Maria é a primeira funcionária, se a Alice é a quinta funcionária e se a Helena é a última funcionária.
+
+Pegou a quinta funcionária e armazenou em uma variavel do tipo Employeer e armazenou em outra variavel o sexto funcionário.
+
+Deletou o quinto funcionário e testou se o nome do quinto funcionário atual é diferente do quinto funcionário anterior e testou se o nome do sexto funcionário anteriormente é o nome do quinto funcionário atual.
+</details>
+<details><strong><summary> Class Application</strong></summary> <br/>
+Cria-se 10 funcionários, metodo insertAll(privada), usando a class Employeers para armazenar na propriedade emp (privada).
+
+Imprime todos os funcionários registrados na propriedade emp, metodo printAllEmployeers(privada).
+
+Há um get para emp, getEmp(público).
+
+Acha um funcionário pelo nome e então deleta, deteleFirstByName(público).
+
+Mudança percentual no salário, inc(público), recebe um int, esse pode aumentar ou diminuir o salário.
+</details>
+
+<details><strong><summary> Class Application</strong></summary> <br/>
+
+Para testar se cria a lista, usa-se o mesmo metodo de teste da classe Employeers, apenas para criação, com a diferença que usa a classe Employeer para conferir se esta tudo de acordo.
+
+Para o segundo teste usou o mesmo procefimento para testar a classe Employeers com a diferença que usou a class Employeer.
+
+Testou-se para o funcionário 1, Maria e o funcionário 5, Alice. Aumento o salário de todos em 10% testou se o salário inicial das duas não é igual ao atual, então incrementou com a o método setRemunarationStringWithPercentual da class Employeer e comparou se é igual.
 

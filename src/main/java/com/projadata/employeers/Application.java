@@ -2,13 +2,28 @@ package com.projadata.employeers;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.IntStream;
 
 /** main class. */
 public class Application {
+  /** method main. */
+  public static void main(String[] args) {
+    Application app = new Application();
+    app.deleteFirstByName("João");
+    app.printAllEmployeers();
+    app.inc(10);
+    app.group();
+    app.printAllGroup();
+  }
   
   private Employeers emp = new Employeers();
+  private Map<String, List<String>> groupOut = new LinkedHashMap<String,
+      List<String>>();  
   
   public Application() {
     this.insertAll(this.emp);
@@ -18,11 +33,10 @@ public class Application {
     return this.emp;
   }
 
-  /** method main. */
-  public static void main(String[] args) {
-    Application app = new Application();
-    app.deleteFirstByName("João");
-    app.printAllEmployeers();
+  /** Imprimir os grupos e o nome dos funcionários, acredito que era isso. */
+  final void printAllGroup() {
+    System.out.println("\n\n");
+    System.out.println(this.groupOut);  
   }
   
   /** delete one employeer by name. */
@@ -36,13 +50,32 @@ public class Application {
     }
   }
   
-  /** Infelizmente não sei testar a parte de print e não sei fazer uma tabela certinha. */
+  /** Infelizmente não sei testar a parte de imprimir e não sei fazer uma tabela certinha. */
   private void printAllEmployeers() {
     System.out.println("Nome | Data Nascimento | Salário | Função");
     this.emp.employeers.stream().forEach(e -> System.out.println(e.name + " | "
         + e.getBirthdateDayMonthYear() + " | " + e.getRemunerationString() + " | " + e.function));
   }
   
+  /** Muda salário. */
+  public void inc(int i) {
+    this.emp.employeers.stream()
+        .forEach(e -> e.setRemunarationStringWithPercentual(i));
+  }
+  
+  /** Group by job. */
+  public void group() {
+    for (int i = 0; i < this.emp.employeers.size(); i += 1) {
+      String key = this.emp.employeers.get(i).function;
+      String element = this.emp.employeers.get(i).name;
+      if (!this.getGroupOut().containsKey(key)) {
+        this.getGroupOut().put(key, new ArrayList<String>());
+      }
+      this.getGroupOut().get(key).add(element);
+    }
+  }
+  
+  /** Adiciona todos funcionários. */
   private void insertAll(Employeers e) {
     LocalDate mariaDate = LocalDate.of(2000, 10, 18);
     BigDecimal mariaSalario = new BigDecimal("2009.44");
@@ -85,5 +118,9 @@ public class Application {
     e.includeEmployeer(new Employeer("Laura", lauraDate, lauraSalario, lauraFunc));
     e.includeEmployeer(new Employeer("Heloisa", heloisaDate, heloisaSalario, heloisaFunc));
     e.includeEmployeer(new Employeer("Helena", helenaDate, helenaSalario, helenaFunc));
+  }
+
+  public Map<String, List<String>> getGroupOut() {
+    return groupOut;
   }
 }
