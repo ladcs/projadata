@@ -212,4 +212,43 @@ class ApplicationTest {
     assertEquals(expect.get(0), toTest.get(0));
     assertEquals(expect.get(1), toTest.get(9));
   }
+  
+  @Test
+  @DisplayName("Teste salário total")
+  void total() {
+    BigDecimal expect = new BigDecimal("48563.31");
+    Application app = new Application();
+    
+    assertEquals(expect, app.allRemuneration());
+  }
+  
+  @Test
+  @DisplayName("Teste número de salários")
+  void number() {
+    Application app = new Application();
+    String[] expect = {
+        "Maria recebe 2 salários.",
+        "João recebe 2 salários.",
+        "Caio recebe 9 salários.",
+        "Miguel recebe 19 salários.",
+        "Alice recebe 2 salários.",
+        "Heitor recebe 1 salário.",
+        "Arthur recebe 4 salários.",
+        "Laura recebe 3 salários.",
+        "Heloisa recebe 1 salário.",
+        "Helena recebe 2 salários."};
+    List<String> toTest = app.numberRemuneration(1000);
+    
+    assertEquals(10, toTest.size());
+    assertEquals(expect[0], toTest.get(0));
+    assertEquals(expect[1], toTest.get(1));
+    assertEquals(expect[2], toTest.get(2));
+    assertEquals(expect[3], toTest.get(3));
+    assertEquals(expect[4], toTest.get(4));
+    assertEquals(expect[5], toTest.get(5));
+    assertEquals(expect[6], toTest.get(6));
+    assertEquals(expect[7], toTest.get(7));
+    assertEquals(expect[8], toTest.get(8));
+    assertEquals(expect[9], toTest.get(9));
+  }
 }

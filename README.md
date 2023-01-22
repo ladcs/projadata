@@ -63,9 +63,13 @@ Com o método findOlder(público) acha a idade, armazenando na propriedade age(p
 
 Order(pública) ordena a lista da funcionários em ordem alfabética e retorna a lista ordenada. Para imprimir printOrderPerson(final).
 
+O método allRemuneration(público) soma o salário de todos os funcionários e retorna o valor e é chamado pela função printSumRemuneration(final).
+
+Por fim o numberRemuneration(público), que recebe um valor double, retorna uma lista de strings dizendo o "$nome recebe $quantidade salário." ou "$nome recebe $quantidade salários.", esse método é chamado pelo printNumberofremuneration(final).
 </details>
 
 <details><strong><summary>Test Class Application</strong></summary> <br/>
+Para cada teste criou uma nova classe Application, o teste descrito seguiu a ordem dos métodos da seção Class Application.
 
 Para testar se cria a lista, usa-se o mesmo metodo de teste da classe Employeers, apenas para criação, com a diferença que usa a classe Employeer para conferir se esta tudo de acordo.
 
@@ -80,4 +84,8 @@ Testou o més de outubro, se o map tem tamanha 1 e se a saída é esta certa par
 Testou se o Caio é o mais velho e se tem 61 anos, testou também se foi encontrado mais alguém.
 
 Testou se a primeira pessoa não era a Maria, testou se a primeira pessoa é a Alice e se a última era Miguel.
+
+Testou se todos os funcionários juntos possuem o salário de 48563.31.
+
+Por fim testou se há 10 strings na lista, se com o salário minimo de 1000 se o retorno de cada um está certa.
 </details>
