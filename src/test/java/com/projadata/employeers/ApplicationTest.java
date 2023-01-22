@@ -184,4 +184,16 @@ class ApplicationTest {
     assertEquals(1, test.size());
     assertEquals(expcet.get("outubro"), test.get("outubro"));
   }
+  
+  @Test
+  @DisplayName("Teste de pegar a pessoa mais velha")
+  void oldest() {
+    String expect = "Caio possui 61 anos.";
+    Application app = new Application();
+    app.findOlder();
+    List<String> toTest = app.oldest;
+    
+    assertEquals(1, toTest.size());
+    assertEquals(expect, toTest.get(0));
+  }
 }

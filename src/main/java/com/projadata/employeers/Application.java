@@ -24,12 +24,17 @@ public class Application {
     app.personBornMonth(10);
     app.personBornMonth(12);
     app.printAllInMonth();
+    app.findOlder();
+    app.printOldest();
   }
+  
+  private int age = 0;
   
   private Employeers emp = new Employeers();
   private Map<String, List<String>> groupOut = new LinkedHashMap<String,
       List<String>>();  
   public Map<String, List<String>> month = new HashMap<>();
+  public List<String> oldest = new ArrayList<>();
   
   public Application() {
     this.insertAll(this.emp);
@@ -37,6 +42,27 @@ public class Application {
   
   public Employeers getEmp() {
     return this.emp;
+  }
+  
+  /** pegar o mais velho. */
+  public void findOlder() {
+    LocalDate toDay = LocalDate.now();
+    List<Employeer> save = this.emp.employeers;
+    LocalDate oldestYear = save.stream()
+        .map(e -> e.birthdate)
+        .sorted()
+        .collect(Collectors.toList()).get(0);
+    
+    if (oldestYear.getMonthValue() >= toDay.getMonthValue()) {
+      if (oldestYear.getDayOfMonth() >= toDay.getDayOfMonth()) {
+        this.age = toDay.getYear() - oldestYear.getYear();
+      } else {
+        this.age = toDay.getYear() - oldestYear.getYear() - 1;
+      }
+    }
+    save.stream()
+        .filter(e -> e.birthdate.equals(oldestYear))
+        .forEach(e -> this.oldest.add(e.name + " possui " + this.age + " anos."));
   }
   
   /** Pega as pessoas que nasceram no mês dado e coloca no Map month. */
@@ -62,6 +88,14 @@ public class Application {
     this.month.put(nameMonth[i - 1], employeer);
   }
   
+  /**Imprimir o(s) nome(s) e a idade do(s) mais velho(s).*/
+  final void printOldest() {
+    System.out.println("\n\n");
+    for (String oldest : this.oldest) {
+      System.out.println(oldest);
+    }
+  }
+  
   /**Imprimir os nomes das pessoas do mes. */
   final void printAllInMonth() {
     System.out.println("\n\n");
@@ -73,7 +107,7 @@ public class Application {
     System.out.println("\n\n");
     System.out.println(this.groupOut);  
   }
-  
+    
   /** delete one employeer by name. */
   public void deleteFirstByName(String name) {
     int findIndex = IntStream.range(0, this.emp.employeers.size())
