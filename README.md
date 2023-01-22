@@ -5,7 +5,9 @@ Esse projeto foi feito com a linguagem Java, com o teste Junit 5.
 Para iniciar o projeto:
 
 git clone https://github.com/ladcs/projadata
+
 cd projadata
+
 mvn install
 
 <details><summary><strong> Classe Person </summary></strong> <br />
