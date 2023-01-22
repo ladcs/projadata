@@ -45,6 +45,8 @@ Pegou a quinta funcionária e armazenou em uma variavel do tipo Employeer e arma
 Deletou o quinto funcionário e testou se o nome do quinto funcionário atual é diferente do quinto funcionário anterior e testou se o nome do sexto funcionário anteriormente é o nome do quinto funcionário atual.
 </details>
 <details><strong><summary> Class Application</strong></summary> <br/>
+Para os métodos, há no javadoc comment como eu faria caso houvesse um banco de dados, sem ORM.
+
 Cria-se 10 funcionários, metodo insertAll(privada), usando a class Employeers para armazenar na propriedade emp (privada).
 
 Imprime todos os funcionários registrados na propriedade emp, metodo printAllEmployeers(privada).
