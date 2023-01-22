@@ -56,9 +56,16 @@ Acha um funcionário pelo nome e então deleta, deteleFirstByName(público).
 Mudança percentual no salário, inc(público), recebe um int, esse pode aumentar ou diminuir o salário.
 
 Há uma propriedade groupOut(privada) com um getter, ela é um map com chave string e valor list de strings. Há também um método para printar o grupo, printAllGroup(final) há também um método group (público) que pega a List emp e coloca chaves com o nome da função no groupOut e vai colocando o nome do funcionário na list de valor para cada chave.
+
+Há um método que pega pessoas nascida no mês, int, enviado, personBornMonth(público), e armazena a informação na propriedade month(público), map=> chave é o nome do més e valor é a lista de pessoas nascidas nesse més. Então para imprimir o map tem um método printAllInMonth(final).
+
+Com o método findOlder(público) acha a idade, armazenando na propriedade age(private) e acha o nome da pessoa mais velha, armazenando essa informação na propriedade oldest(public) que é lista caso acha 2 pessoas ou mais do mesmo ano.
+
+Order(pública) ordena a lista da funcionários em ordem alfabética e retorna a lista ordenada. Para imprimir printOrderPerson(final).
+
 </details>
 
-<details><strong><summary> Class Application</strong></summary> <br/>
+<details><strong><summary>Test Class Application</strong></summary> <br/>
 
 Para testar se cria a lista, usa-se o mesmo metodo de teste da classe Employeers, apenas para criação, com a diferença que usa a classe Employeer para conferir se esta tudo de acordo.
 
@@ -67,4 +74,10 @@ Para o segundo teste usou o mesmo procefimento para testar a classe Employeers c
 Testou-se para o funcionário 1, Maria e o funcionário 5, Alice. Aumento o salário de todos em 10% testou se o salário inicial das duas não é igual ao atual, então incrementou com a o método setRemunarationStringWithPercentual da class Employeer e comparou se é igual.
 
 Testou se o tamanho do map de groupOut possui 7 e testou cada chave para saber se a List é a esperada.
+
+Testou o més de outubro, se o map tem tamanha 1 e se a saída é esta certa para o mesmo més.
+
+Testou se o Caio é o mais velho e se tem 61 anos, testou também se foi encontrado mais alguém.
+
+Testou se a primeira pessoa não era a Maria, testou se a primeira pessoa é a Alice e se a última era Miguel.
 </details>

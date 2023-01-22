@@ -196,4 +196,20 @@ class ApplicationTest {
     assertEquals(1, toTest.size());
     assertEquals(expect, toTest.get(0));
   }
+  
+  @Test
+  @DisplayName("Teste de ordenação")
+  void order() {
+    List<String> expect = new ArrayList<>();
+    expect.add("Alice");
+    expect.add("Miguel");
+    
+    Application app = new Application();
+    
+    List<String> toTest = app.order();
+    
+    assertNotEquals("Maria", toTest.get(0));
+    assertEquals(expect.get(0), toTest.get(0));
+    assertEquals(expect.get(1), toTest.get(9));
+  }
 }

@@ -26,10 +26,11 @@ public class Application {
     app.printAllInMonth();
     app.findOlder();
     app.printOldest();
+    app.printOrderPerson();
   }
   
   private int age = 0;
-  
+    
   private Employeers emp = new Employeers();
   private Map<String, List<String>> groupOut = new LinkedHashMap<String,
       List<String>>();  
@@ -38,6 +39,16 @@ public class Application {
   
   public Application() {
     this.insertAll(this.emp);
+  }
+  
+  /** método para ordernar os funcionários. */
+  public List<String> order() {
+    List<Employeer> save = this.emp.employeers;
+    List<String> order = save.stream()
+        .map(e -> e.name)
+        .sorted()
+        .collect(Collectors.toList());
+    return order;
   }
   
   public Employeers getEmp() {
@@ -94,6 +105,11 @@ public class Application {
     for (String oldest : this.oldest) {
       System.out.println(oldest);
     }
+  }
+  
+  final void printOrderPerson() {
+    System.out.println("\n\n");
+    System.out.println(this.order());
   }
   
   /**Imprimir os nomes das pessoas do mes. */
