@@ -45,7 +45,7 @@ Pegou a quinta funcionária e armazenou em uma variavel do tipo Employeer e arma
 Deletou o quinto funcionário e testou se o nome do quinto funcionário atual é diferente do quinto funcionário anterior e testou se o nome do sexto funcionário anteriormente é o nome do quinto funcionário atual.
 </details>
 <details><strong><summary> Class Application</strong></summary> <br/>
-Para os métodos, há no javadoc comment como eu faria caso houvesse um banco de dados, sem ORM.
+Para os métodos, há no javadoc comment como eu faria caso houvesse um banco de dados, sem ORM. <br/>
 
 Cria-se 10 funcionários, metodo insertAll(privada), usando a class Employeers para armazenar na propriedade emp (privada).
 
@@ -71,7 +71,7 @@ Por fim o numberRemuneration(público), que recebe um valor double, retorna uma 
 </details>
 
 <details><strong><summary>Test Class Application</strong></summary> <br/>
-Para cada teste criou uma nova classe Application, o teste descrito seguiu a ordem dos métodos da seção Class Application.
+Para cada teste criou uma nova classe Application, o teste descrito seguiu a ordem dos métodos da seção Class Application.<br/>
 
 Para testar se cria a lista, usa-se o mesmo metodo de teste da classe Employeers, apenas para criação, com a diferença que usa a classe Employeer para conferir se esta tudo de acordo.
 
