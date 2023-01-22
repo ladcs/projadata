@@ -20,7 +20,15 @@ Cria uma nova person, coloca o nome Luciano e a data de nascimento 1992-02-19. E
 
 <details><summary><strong> Classe Employeer </summary></strong> <br />
 
-A classe employeer extende a classe person, assim ela herda as duas propriedades da mesma e o método birthdateToDayMonthYear. tem os parámetros nome (name), data de nascimento (birthdate), salário (remuneration) e função (function) como publicas, todos devem ser enviados na criação de um novo objeto, enquanto o parámetro remuneração em string (remunerationString) é privada tendo seu getter (getRemunerationString) e seu setter (setRemunarationStringWithPercentual), onde o primeiro retorna o preço com o valor m.cdu,dd fazendo uso do methodo privado remunerationToString para a formatação. O setter da remuneração recebe um inteiro que é convertido para porcentagem e muda o valor. Há também o método público para retornar o número de salário mínimo (numberOfRemuneration), esse recebe um double, sendo o valor do salário mínimo, e retorna a quantidade em inteiro de salário.
+A classe employeer extende a classe person, assim ela herda as duas propriedades da mesma e o método birthdateToDayMonthYear. 
+
+Tem os parámetros nome (name), data de nascimento (birthdate), salário (remuneration) e função (function) como publicas, todos devem ser enviados na criação de um novo objeto, enquanto o parámetro remuneração em string (remunerationString) é privada tendo seu getter (getRemunerationString) e seu setter (setRemunarationStringWithPercentual).
+
+O getter (getRemunerationString) o retorna o preço com o valor m.cdu,dd fazendo uso do método privado remunerationToString para a formatação. 
+
+O setter (setRemunarationStringWithPercentual) recebe um inteiro que é convertido para porcentagem e muda o valor.
+
+Há também o método público para retornar o número de salário mínimo (numberOfRemuneration), esse recebe um double, sendo o valor do salário mínimo, e retorna a quantidade em inteiro de salário.
 
 </details>
 <details><summary><strong> Teste Classe employeer</strong> </summary> <br/>
